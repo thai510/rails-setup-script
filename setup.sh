@@ -13,7 +13,7 @@ sudo dpkg -i node_*
 TEXT='if [ -d $HOME\/.rbenv ]; then\nexport PATH="$HOME\/.rbenv\/bin:$PATH"\neval "$(rbenv init -)"\nfi\n[ -z "$PS1" ] && return\n'
 
 curl -L https://raw.github.com/fesplugas/rbenv-installer/master/bin/rbenv-installer | bash
-sed -i '1s/^/$TEXT\n/' ~/.bashrc
+sed -i '1s/^/${TEXT}\n/' ~/.bashrc
 . ~/.bashrc
 rbenv install 1.9.3-p125
 rbenv global 1.9.3-p125
