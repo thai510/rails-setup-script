@@ -11,7 +11,7 @@ echo "Clone TechUSB Repo? (y/n)"
 read cloneRepo
 
 if [[ "$installPackages" == "y" ]]; then
-  echo "Updating..."
+	echo "Updating..."
 	sudo apt-get -y update
 	echo "Installing necessary packages..."
 	sudo apt-get -y install curl git-core python-software-properties build-essential openssl libssl-dev python g++ make checkinstall
@@ -32,16 +32,21 @@ if [[ "$installQt" == "y" ]]; then
 	cd qt-everywhere-opensource-src-4.7.4
 	./configure
 	echo "How many CPU cores does this computer have? (Choose: 1,2,4)"
+	sudo ln -s /usr/lib/libXrender.so.1.3.0 /usr/lib/libXrender.so
 	read cores
 	if [[ "$cores" == "1" ]]; then
 		make
 	elif [[ "$cores" == "2" ]]; then
-		make -j2
-	elif [[ "$cores" == "4" ]]; then 
 		make -j4
+	elif [[ "$cores" == "4" ]]; then 
+		make -j8
 	else
 		make
 	fi
+	echo "ENTER THE ROOT PASSWORD HERE!"
+	su -c "make install"
+	echo "PATH=/usr/local/Trolltech/Qt-4.7.4/bin:$PATH" >> ~/.bashrc
+	echo "export PATH" >> ~/.bashrc	
 fi
 
 if [[ "$installRuby" == "y" ]]; then
