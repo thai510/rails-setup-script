@@ -1,0 +1,35 @@
+<?xml version="1.0"?>
+<gconf>
+	<entry name="font" mtime="1372026695" type="string">
+		<stringvalue>Monospace Bold 10</stringvalue>
+	</entry>
+	<entry name="use_system_font" mtime="1372025672" type="bool" value="false"/>
+	<entry name="bold_color_same_as_fg" mtime="1372025855" type="bool" value="true"/>
+	<entry name="background_darkness" mtime="1372026114" type="float" value="0.31292515993118286"/>
+	<entry name="scroll_background" mtime="1372025466" type="bool" value="false"/>
+	<entry name="background_image" mtime="1372025589" type="string">
+		<stringvalue>/home/ian/Downloads/dragon-6975-1920x1080.jpg</stringvalue>
+	</entry>
+	<entry name="background_type" mtime="1372026104" type="string">
+		<stringvalue>image</stringvalue>
+	</entry>
+	<entry name="use_theme_colors" mtime="1372025876" type="bool" value="false"/>
+	<entry name="title" mtime="1372024397" type="string">
+		<stringvalue>Sleeping Dragon Terminal</stringvalue>
+	</entry>
+	<entry name="visible_name" mtime="1372026781" type="string">
+		<stringvalue>IanAlexander</stringvalue>
+	</entry>
+	<entry name="palette" mtime="1372026722" type="string">
+		<stringvalue>#B97A00000000:#FFFF00000000:#000064646767:#09092A2AFFFF:#09092A2AFFFF:#CDCD0000CDCD:#0000CDCDCDCD:#FAFAEBEBD7D7:#929292929292:#FFFF00000000:#000064646767:#09092A2AFFFF:#09092A2AFFFF:#FFFF0000FFFF:#0000FFFFFFFF:#FFFFFFFFFFFF</stringvalue>
+	</entry>
+	<entry name="background_color" mtime="1372025883" type="string">
+		<stringvalue>#FFFFFFFFFFFF</stringvalue>
+	</entry>
+	<entry name="foreground_color" mtime="1372026095" type="string">
+		<stringvalue>#000000000000</stringvalue>
+	</entry>
+	<entry name="bold_color" mtime="1372021266" type="string">
+		<stringvalue>#000000000000</stringvalue>
+	</entry>
+</gconf>
