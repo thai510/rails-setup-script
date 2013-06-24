@@ -15,7 +15,7 @@ if [[ "$installPackages" == "y" ]]; then
 	sudo apt-get -y update
 	echo "Installing necessary packages..."
 	sudo apt-get -y install curl git-core python-software-properties build-essential openssl libssl-dev python g++ make checkinstall
-	sudo apt-get -y install postgresql libpq-dev xclip libxext-dev
+	sudo apt-get -y install postgresql libpq-dev xclip libxext-dev live-build
 	sudo mkdir ~/src && cd $_
 	sudo wget -N http://nodejs.org/dist/node-latest.tar.gz
 	sudo tar xzvf node-latest.tar.gz && cd node-v*
