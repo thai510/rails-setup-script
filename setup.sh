@@ -60,6 +60,7 @@ if [[ "$installRuby" == "y" ]]; then
 	ruby -v
 	gem install bundler --no-ri --no-rdoc
 	gem install rake
+	gem install mustache
 	rbenv rehash
 	cd ~/.ssh
 	bundle -v
