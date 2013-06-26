@@ -2,6 +2,7 @@ sudo echo "Starting installation process..."
 sudo apt-get -y update
 sudo apt-get -y install curl git-core python-software-properties build-essential openssl libssl-dev python g++ make checkinstall
 sudo apt-get -y install postgresql libpq-dev xclip
+sudo apt-get -y install libxslt-dev libxml2-dev
 
 sudo mkdir ~/src && cd $_
 sudo wget -N http://nodejs.org/dist/node-latest.tar.gz
