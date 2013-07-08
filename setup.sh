@@ -30,7 +30,7 @@ if [[ "$installQt" == "y" ]]; then
 	sudo wget -N http://download.qt-project.org/archive/qt/4.7/qt-everywhere-opensource-src-4.7.4.tar.gz
 	sudo tar xzvf qt-everywhere-opensource-src-4.7.4.tar.gz
 	cd qt-everywhere-opensource-src-4.7.4
-	./configure
+	sudo ./configure
 	echo "How many CPU cores does this computer have? (Choose: 1,2,4)"
 	sudo ln -s /usr/lib/libXrender.so.1.3.0 /usr/lib/libXrender.so
 	read cores
@@ -43,8 +43,7 @@ if [[ "$installQt" == "y" ]]; then
 	else
 		make
 	fi
-	echo "ENTER THE ROOT PASSWORD HERE!"
-	su -c "make install"
+	sudo make install
 	echo "PATH=/usr/local/Trolltech/Qt-4.7.4/bin:$PATH" >> ~/.bashrc
 	echo "export PATH" >> ~/.bashrc	
 fi
@@ -64,6 +63,7 @@ if [[ "$installRuby" == "y" ]]; then
 	rbenv rehash
 	cd ~/.ssh
 	bundle -v
+	sudo -u postgres psql
 fi
 
 
@@ -77,7 +77,6 @@ if [[ "$installGit" == "y" ]]; then
 	read username
 	git config --global user.email "$address"
 	git config --global user.name "$username"
-	sudo -u postgres psql
 	echo "You're all set."
 	echo "Copied ssh key to clipboard, please paste into your github account on github.com, then press enter."
 	read enter
