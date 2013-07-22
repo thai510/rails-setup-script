@@ -3,7 +3,7 @@ echo "Install packages? (y/n)"
 read installPackages
 echo "Download & Install Qt 4.7.4? (y/n)"
 read installQt
-echo "Download & Install Ruby 1.8.7? (y/n)"
+echo "Download & Install Ruby 1.9.3? (y/n)"
 read installRuby
 echo "Download & Install Git? (y/n)"
 read installGit
@@ -54,8 +54,8 @@ if [[ "$installRuby" == "y" ]]; then
 	echo "Copy & Paste the lines above as stated into the bashrc file, then press enter"
 	read enter
 	. ~/.bashrc
-	rbenv install 1.8.7-p371
-	rbenv global 1.8.7-p371
+	rbenv install 1.9.3-p125
+	rbenv global 1.9.3-p125
 	ruby -v
 	gem install bundler --no-ri --no-rdoc
 	gem install rake
