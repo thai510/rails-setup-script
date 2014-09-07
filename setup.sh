@@ -18,6 +18,7 @@ sudo apt-get -y install postgresql libpq-dev xclip libxslt-dev libxml2-dev nodej
 
 echo "Setting up Ruby..."
 git clone https://github.com/sstephenson/rbenv.git ~/.rbenv
+git clone https://github.com/sstephenson/ruby-build.git ~/.rbenv/plugins/ruby-build
 echo 'export PATH="$HOME/.rbenv/bin:$PATH"' >> ~/.bashrc
 echo 'eval "$(rbenv init -)"' >> ~/.bashrc
 . ~/.bashrc
