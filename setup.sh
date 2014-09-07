@@ -1,21 +1,25 @@
+sudo echo "Checking to make sure we're the deployer user"...
+if [ "$USER" != "deployer" ]; then
+  echo "Using root account. Create deployer account? (y/N)"
+  read proceed
+  if [ "$proceed" == "y" ]; then
+    sudo su -c "/usr/sbin/useradd deployer"
+    passwd deployer
+    echo 'deployer ALL=(ALL:ALL) ALL' >> /etc/sudoers
+    echo "Please log out, and log back in as the user: deployer"
+  fi
+  exit
+fi
 sudo echo "Starting installation process..."
 sudo apt-get -y update
 sudo apt-get -y install curl git-core python-software-properties build-essential openssl libssl-dev python g++ make checkinstall
-sudo apt-get -y install postgresql libpq-dev xclip
-sudo apt-get -y install libxslt-dev libxml2-dev
+sudo apt-get -y install postgresql libpq-dev xclip libxslt-dev libxml2-dev nodejs
 
-sudo mkdir ~/src && cd $_
-sudo wget -N http://nodejs.org/dist/node-latest.tar.gz
-sudo tar xzvf node-latest.tar.gz && cd node-v*
-sudo ./configure
-sudo checkinstall
-sudo dpkg -i node_*
-
-TEXT='if [ -d $HOME\/.rbenv ]; then\nexport PATH="$HOME\/.rbenv\/bin:$PATH"\neval "$(rbenv init -)"\nfi\n[ -z "$PS1" ] && return\n'
-
-curl -L https://raw.github.com/fesplugas/rbenv-installer/master/bin/rbenv-installer | bash
-sed -i '1s/^/${TEXT}\n/' ~/.bashrc
-. ~/.bashrc
+echo "Setting up Ruby..."
+git clone https://github.com/sstephenson/rbenv.git ~/.rbenv
+echo 'export PATH="$HOME/.rbenv/bin:$PATH"' >> ~/.bashrc
+echo 'eval "$(rbenv init -)"' >> ~/.bashrc
+source ~/.bashrc
 rbenv install 1.9.3-p125
 rbenv global 1.9.3-p125
 ruby -v
@@ -27,10 +31,14 @@ echo "Type your email address, followed by [ENTER]:"
 read address
 ssh-keygen -t rsa -C "$address"
 xclip -sel clip < ~/.ssh/id_rsa.pub
-echo "Copied ssh key to clipboard, please paste into your github account."
+echo "Copied ssh key to clipboard, please paste into your bitbucket account."
 echo "What is your name?"
 read username
 git --config --global user.email "$address"
 git --config --global user.name "$username"
+echo "Please make a postgres user and db. Use the following commands:"
+echo "create user dcm password 'password123';"
+echo "create database dcm_production owner dcm;"
+echo "\quit"
 sudo -u postgres psql
-echo "DONE"
+echo "DONE. Now run on your local machine: cap <env> deploy:setup, cap <env> deploy:check, and cap <env> deploy:cold."
