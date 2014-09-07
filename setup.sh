@@ -18,12 +18,12 @@ echo "Setting up Ruby..."
 git clone https://github.com/sstephenson/rbenv.git ~/.rbenv
 echo 'export PATH="$HOME/.rbenv/bin:$PATH"' >> ~/.bashrc
 echo 'eval "$(rbenv init -)"' >> ~/.bashrc
-source ~/.bashrc
-rbenv install 1.9.3-p125
-rbenv global 1.9.3-p125
+. ~/.bashrc
+/home/deployer/.rbenv/bin/rbenv install 1.9.3-p125
+/home/deployer/.rbenv/bin/rbenv global 1.9.3-p125
 ruby -v
 gem install bundler --no-ri --no-rdoc
-rbenv rehash
+/home/deployer/.rbenv/bin/rbenv rehash
 cd ~/.ssh
 bundle -v
 echo "Type your email address, followed by [ENTER]:"
