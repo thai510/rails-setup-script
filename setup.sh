@@ -3,8 +3,7 @@ if [ "$USER" != "deployer" ]; then
   echo "Using root account. Create deployer account? (y/N)"
   read proceed
   if [ "$proceed" == "y" ]; then
-    sudo su -c "/usr/sbin/useradd deployer"
-    passwd deployer
+    adduser deployer
     echo 'deployer ALL=(ALL:ALL) ALL' >> /etc/sudoers
     echo "Please log out, and log back in as the user: deployer"
   fi
