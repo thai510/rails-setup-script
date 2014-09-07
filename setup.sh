@@ -22,8 +22,8 @@ git clone https://github.com/sstephenson/ruby-build.git ~/.rbenv/plugins/ruby-bu
 echo 'export PATH="$HOME/.rbenv/bin:$PATH"' >> ~/.bashrc
 echo 'eval "$(rbenv init -)"' >> ~/.bashrc
 . ~/.bashrc
-/home/deployer/.rbenv/bin/rbenv install 1.9.3-p125
-/home/deployer/.rbenv/bin/rbenv global 1.9.3-p125
+/home/deployer/.rbenv/bin/rbenv install 1.9.3-p392
+/home/deployer/.rbenv/bin/rbenv global 1.9.3-p392
 ruby -v
 gem install bundler --no-ri --no-rdoc
 /home/deployer/.rbenv/bin/rbenv rehash
