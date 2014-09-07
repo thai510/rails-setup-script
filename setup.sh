@@ -1,3 +1,5 @@
+#!/bin/bash
+
 sudo echo "Checking to make sure we're the deployer user"...
 if [ "$USER" != "deployer" ]; then
   echo "Using root account. Create deployer account? (y/N)"
