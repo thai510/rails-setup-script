@@ -14,7 +14,7 @@ fi
 sudo echo "Starting installation process..."
 sudo apt-get -y update
 sudo apt-get -y install curl git-core python-software-properties build-essential openssl libssl-dev python g++ make checkinstall
-sudo apt-get -y install postgresql libpq-dev xclip libxslt-dev libxml2-dev nodejs
+sudo apt-get -y install postgresql libpq-dev xclip libxslt-dev libxml2-dev nodejs nginx
 
 echo "Setting up Ruby..."
 git clone https://github.com/sstephenson/rbenv.git ~/.rbenv
